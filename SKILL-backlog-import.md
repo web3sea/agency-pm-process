@@ -5,6 +5,8 @@ description: Format and export stories from user-stories-backlog.csv into Jira-r
 
 # Backlog CSV Import Skill
 
+> Built by [Automation Architecture AI](https://automationarchitecture.ai)
+
 Read rows from `user-stories-backlog.csv` and output fully-formatted Jira-ready story markdown. This is a deterministic formatting workflow: the CSV is the source of truth. AI generation is only used as a fallback for rows with missing or thin acceptance criteria.
 
 ## Deterministic Workflow

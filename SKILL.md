@@ -5,6 +5,8 @@ description: Write structured Jira user stories with detailed acceptance criteri
 
 # Jira User Stories Skill
 
+> Built by [Automation Architecture AI](https://automationarchitecture.ai)
+
 Generate comprehensive, Jira-ready user stories with structured acceptance criteria from conversational feature descriptions. The goal is to turn rough product requirements into well-organized stories that a development team can pick up and execute without ambiguity.
 
 ## Invocation — Subagent Pattern

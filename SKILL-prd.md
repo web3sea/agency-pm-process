@@ -5,6 +5,8 @@ description: Write a full Product Requirements Document (PRD) from a rough initi
 
 # PRD Writer Skill
 
+> Built by [Automation Architecture AI](https://automationarchitecture.ai)
+
 Generate a complete Product Requirements Document from whatever context the user provides — a rough brief, a Slack message, a recorded call summary, or a single sentence. The goal is to give the engineering team everything they need to begin planning without a follow-up meeting.
 
 ## Invocation — Subagent Pattern
