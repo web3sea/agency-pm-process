@@ -123,7 +123,11 @@ Task tool:
     [INSERT USER'S REQUIREMENT HERE]
 ```
 
-After the subagent returns, wrap its output in a fenced markdown code block (```markdown ... ```) so the user can copy and paste the raw Markdown directly into Jira. Then end with "Ready for the next one." outside the code block. Do not rewrite or summarize the story.
+After the subagent returns, wrap its output in a fenced markdown code block (```markdown ... ```) so the user can copy and paste the raw Markdown directly into Jira. Then end with this prompt — exactly as written — outside the code block:
+
+> Review the story above. Request any edits now. When it's ready, reply **"approved — push to [PROJECT KEY]"** to send it to Jira, or **"next"** to write another story first.
+
+Do not push to Jira until the user explicitly approves. Treat any response other than a clear approval as a revision request or a cue to continue writing. Apply edits, re-output the full story in a new fenced block, and prompt again.
 
 ## Story Structure
 
@@ -221,4 +225,22 @@ The user will typically describe features conversationally — sometimes in frag
 2. Ask clarifying questions after the story is drafted, not before. Deliver a strong first draft and let the user refine.
 3. When the user adds context that changes a previously written story, note how the new information affects the earlier story but focus on the current request.
 4. When the user's description is ambiguous, make a reasonable assumption in the story and surface the ambiguity as an open question.
-5. End each story with a brief ready prompt (e.g., "Ready for the next one.") to maintain flow.
+5. After each story, prompt for review and Jira push approval — never skip this step.
+
+## Jira Push
+
+Stories are pushed to Jira one at a time, after explicit approval. Use the `mcp-atlassian` MCP server.
+
+**Gate:** Only push when the user replies with a clear approval (e.g., "approved — push to ICLD"). Any other response is a revision request or a signal to continue writing.
+
+**On approval, call `jira_create_issue` with:**
+
+| Jira field | Source |
+|---|---|
+| `project_key` | From user's approval message |
+| `summary` | Story title |
+| `description` | Full formatted story body (markdown, excluding the title line) |
+| `issue_type` | `"Story"` for standard stories; `"Task"` for Spikes |
+| `priority` | Map from story: Critical → `Highest`, High → `High`, Medium → `Medium`, Low → `Low` |
+
+After the call completes, confirm with the created Jira key (e.g., "Pushed as **ICLD-16**.") then ask if they want to write another story.
