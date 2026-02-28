@@ -1,16 +1,20 @@
 # Agency PM Process
 
-Structured discovery process for an AI automation agency. Converts client needs into Jira-ready engineering artifacts — fast, specific, and factual.
+A structured discovery process that converts client needs into Jira-ready engineering artifacts — fast, specific, and factual. Built for software delivery teams of any kind: agencies, startups, or internal product teams.
 
-Used for every project type: no-code (n8n, Make.com), low-code (hybrid automation + Claude agents), and full web app (custom product builds).
+Works across the full delivery spectrum: no-code (n8n, Make.com), low-code (hybrid automation + AI agents), and full web app (custom product builds).
+
+Created by **[Automation Architecture AI](https://automationarchitecture.ai)**.
 
 ---
 
 ## What This Is
 
-This repo is the operating system for how we run product discovery. When a client need comes in — a Slack message, a call summary, a rough brief — this process produces the artifacts the dev team needs to scope, estimate, and commit to a timeline. No follow-up meetings required.
+This repo is the operating system for running product discovery. When a client need comes in — a Slack message, a call summary, a rough brief — this process produces the artifacts a dev team needs to scope, estimate, and commit to a timeline. No follow-up meetings required.
 
-All output goes directly into Jira (`https://automationarchitecture.atlassian.net`). There is no parallel documentation system.
+While it was built by an AI automation agency and includes AI-specific domain expertise (Claude API, n8n, Make.com), the core process — user stories, PRDs, spikes, acceptance criteria standards, and Jira integration — applies to any software delivery team. Adapt the `CLAUDE.md` context to your stack and it's ready to use.
+
+All output goes directly into Jira. There is no parallel documentation system.
 
 ---
 
@@ -67,3 +71,7 @@ Invoke skills by describing what you need:
 ## Dev Team Agreement
 
 Stories and PRDs are the agreement boundary. The dev team reviews artifacts and commits to a timeline based on them. Underspecified stories block timeline agreement and return to discovery. This keeps scope clear before a single line of code is written.
+
+---
+
+Built by [Automation Architecture AI](https://automationarchitecture.ai).
